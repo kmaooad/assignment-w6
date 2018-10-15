@@ -142,4 +142,4 @@ To update DB schema, run provided `update-db.ps1` script (Windows) or `update-db
 
 ## Testing your API
 
-As before, Swagger UI is provided with the starter project, so you can run application and see it at `h`ttp://localhost:5000/swagger` (NOTE: 5000 port is default one, it may differ on your machine - check console output as your start app).
+As before, Swagger UI is provided with the starter project, so you can run application and see it at `http://localhost:5000/swagger` (NOTE: 5000 port is default one, it may differ on your machine - check console output as your start app).
