@@ -24,43 +24,53 @@ General convention for this API (and of REST API development in general) is:
 ### Create feature
 
 POST /api/features
+```
     {
         "title": "some title",
         "tags": "tag1, tag2, tag3"
     }
+```
 
 Response
 HTTP 200 OK or HTTP 201 Created
+```
     {
         "id": 1
         "title": "some title",
         "tags": "tag1, tag2, tag3"
     }
+```
 
 ### Create story
 
 POST /api/stories
+```
     {
         "title": "some title",
-        "tags": "tag1, tag2, tag3"
+        "tags": "tag1, tag2, tag3",
         "featureId": 1
     }
+```
 
 Response
 HTTP 200 OK or HTTP 201 Created
+```
     {
         "id": 1
         "title": "some title",
-        "tags": "tag1, tag2, tag3"
+        "tags": "tag1, tag2, tag3",
         "featureId": 1
     }
+```
 
 ### Update feature
 
 PATCH /api/features/1
+```
     {
         "title": "new title"
     }
+```
 
 Response
 HTTP 200 OK
@@ -68,9 +78,11 @@ HTTP 200 OK
 ### Update story
 
 PATCH /api/stories/1
+```
     {
         "title": "new title"
     }
+```
 
 Response
 HTTP 200 OK
@@ -81,11 +93,13 @@ GET /api/features/1
 
 Response
 HTTP 200 OK
+```
     {
         "id": 1
         "title": "new title",
         "tags": "tag1, tag2, tag3"
     }
+```
 
 ### Get story
 
@@ -93,12 +107,14 @@ GET /api/stories/1
 
 Response
 HTTP 200 OK
+```
     {
         "id": 1
         "title": "new title",
         "tags": "tag1, tag2, tag3",
         "featureId": 1
     }
+```
 
 ### Delete feature
 
