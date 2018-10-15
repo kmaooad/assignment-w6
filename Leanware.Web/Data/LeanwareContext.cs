@@ -6,7 +6,8 @@ namespace KmaOoad18.Leanware.Web.Data
     public class LeanwareContext : DbContext
     {
         // Add DbSets for your entities
-        public DbSet<UserStory> UserStories { get; set; }
+        DbSet<Story> Stories { get; set; }
+        DbSet<Feature> Features { get; set; }
 
         public LeanwareContext(DbContextOptions<LeanwareContext> options) : base(options) { }
 
