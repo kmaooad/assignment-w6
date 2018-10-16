@@ -7,7 +7,7 @@ pool:
   vmImage: 'vs2017-win2016'
 
 steps:
-- powershell: Invoke-WebRequest -Uri https://raw.githubusercontent.com/kmaooad18/$(ParentRepository)/master/Spec.cs -OutFile $(Build.SourcesDirectory)/Spec.cs
+- powershell: Invoke-WebRequest -Uri https://raw.githubusercontent.com/kmaooad18/$(ParentRepository)/master/Leanware.Web/Spec.cs -OutFile $(Build.SourcesDirectory)/Leanware.Web/Spec.cs
 - script: dotnet build
 - task: DotNetCoreCLI@2
   inputs:
