@@ -26,8 +26,8 @@ General convention for this API (and of REST API development in general) is:
 POST /api/features
 ```
     {
-        "title": "some title",
-        "tags": "tag1, tag2, tag3"
+        "Title": "some title",
+        "Tags": ["tag1", "tag2", "tag3"]
     }
 ```
 
@@ -35,9 +35,9 @@ Response
 HTTP 200 OK or HTTP 201 Created
 ```
     {
-        "id": 1
-        "title": "some title",
-        "tags": "tag1, tag2, tag3"
+        "Id": 1
+        "Title": "some title",
+        "Tags": ["tag1", "tag2", "tag3"]
     }
 ```
 
@@ -46,9 +46,9 @@ HTTP 200 OK or HTTP 201 Created
 POST /api/stories
 ```
     {
-        "title": "some title",
-        "tags": "tag1, tag2, tag3",
-        "featureId": 1
+        "Title": "some title",
+        "Tags": ["tag1", "tag2", "tag3"],
+        "FeatureId": 1
     }
 ```
 
@@ -56,10 +56,10 @@ Response
 HTTP 200 OK or HTTP 201 Created
 ```
     {
-        "id": 1
-        "title": "some title",
-        "tags": "tag1, tag2, tag3",
-        "featureId": 1
+        "Id": 1
+        "Title": "some title",
+        "Tags": ["tag1", "tag2", "tag3"],
+        "FeatureId": 1
     }
 ```
 
@@ -68,7 +68,7 @@ HTTP 200 OK or HTTP 201 Created
 PATCH /api/features/1
 ```
     {
-        "title": "new title"
+        "Title": "new title"
     }
 ```
 
@@ -80,7 +80,7 @@ HTTP 200 OK
 PATCH /api/stories/1
 ```
     {
-        "title": "new title"
+        "Title": "new title"
     }
 ```
 
@@ -95,9 +95,9 @@ Response
 HTTP 200 OK
 ```
     {
-        "id": 1
-        "title": "new title",
-        "tags": "tag1, tag2, tag3"
+        "Id": 1
+        "Title": "new title",
+        "Tags": ["tag1", "tag2", "tag3"]
     }
 ```
 
@@ -109,10 +109,10 @@ Response
 HTTP 200 OK
 ```
     {
-        "id": 1
-        "title": "new title",
-        "tags": "tag1, tag2, tag3",
-        "featureId": 1
+        "Id": 1
+        "Title": "new title",
+        "Tags": ["tag1", "tag2", "tag3"],
+        "FeatureId": 1
     }
 ```
 
