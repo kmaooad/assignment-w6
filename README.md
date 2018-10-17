@@ -1,5 +1,7 @@
 # Leanware Project
 
+[![Join the chat at https://gitter.im/kmaooad18/assignment-w6](https://badges.gitter.im/kmaooad18/assignment-w6.svg)](https://gitter.im/kmaooad18/assignment-w6?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 'Leanware' is a revolutionary work tool for Lean Software Development. It is a simple cards board (also known as kanban) that visualizes development scope and progress. The goal of the project is to implement API for managing the board.
 
 This assigment comes with much less ready-to-use code than before: you have to implement controllers on your own, and also add fields to models (in `Models` folder). You don't need to modify DI in `Startup` for this assignment: `LeanwareContext` is already registered for you in `Startup.Student.cs`. So most of your job in this assignment is putting together all the code you saw in previous assignment from week 5 and implementing similar solution in this project. Later on you will use this project for other assignments and develop it step by step to a bigger solution.
