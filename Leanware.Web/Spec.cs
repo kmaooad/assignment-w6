@@ -18,21 +18,30 @@ using System.Net;
 
 namespace KmaOoad18.Leanware.Web
 {
-    public class Spec :
-    IDisposable,
-    IClassFixture<WebApplicationFactory<SutStartup>>
+    public class Spec : IClassFixture<WebApplicationFactory<SutStartup>>
     {
         private readonly WebApplicationFactory<SutStartup> _factory;
 
         public Spec(WebApplicationFactory<SutStartup> factory)
         {
+            File.Delete("test.db");
+
             _factory = factory.WithWebHostBuilder(builder =>
             {
                 builder.UseSolutionRelativeContentRoot("./Leanware.Web/");
+
                 builder.ConfigureServices(services =>
                 {
-                    services.AddDbContext<LeanwareContext, TestContext>(options =>
+                    services.AddDbContext<LeanwareContext>(options =>
                     options.UseSqlite("Data Source=test.db"));
+
+                    var serviceProvider = services.BuildServiceProvider();
+
+                    using (var scope = serviceProvider.CreateScope())
+                    {
+                        var db = scope.ServiceProvider.GetRequiredService<LeanwareContext>();
+                        db.Database.Migrate();
+                    }
                 });
             });
         }
@@ -108,15 +117,6 @@ namespace KmaOoad18.Leanware.Web
             var deletedFeature = await client.Get(featurePath);
             deletedFeature.StatusCode.Should().Be(HttpStatusCode.NotFound);
         }
-
-
-        public void Dispose()
-        {
-            using (var db = new TestContext())
-            {
-            }
-        }
-
 
         string RandomStoryTitle => $"US{DateTime.Now.Ticks}";
         List<string> RandomStoryTags => Guid.NewGuid().ToString().Split('-').ToList();
@@ -205,19 +205,4 @@ namespace KmaOoad18.Leanware.Web
         }
     }
 
-    internal class TestContext : LeanwareContext
-    {
-        public TestContext()
-        {
-        }
-
-        public TestContext(DbContextOptions<LeanwareContext> options) : base(options)
-        {
-        }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlite($"Data Source=test.db");
-        }
-    }
 }
